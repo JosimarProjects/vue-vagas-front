@@ -2,46 +2,18 @@
   <div class="container py-4">
     <div class="row">
       <div class="col">
-        <div class="h-100 p-5 bg-light border rounded-3">
-          <h2>Pesquisar Vagas</h2>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label>Título da vaga</label>
-                <input type="text" class="form-control"
-                       placeholder="Pesquise por palavras chaves, por exemplo 'PHP', 'Pleno', 'Analista' ">
-                <small class="form-text text-muted">Informe palavras que estejam relacionadas ao título da vaga que você
-                  procura</small>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <button class="btn btn-outline-dark mt-2" type="button">Buscar</button>
-            </div>
-
-          </div>
-        </div>
+        <pesquisar-vaga></pesquisar-vaga>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col-4">
-        <div class="h-100 p-5 rounded-3 border bg-dark text-white">
-          <p>Vagas abertas</p>
-          <h2>25</h2>
-        </div>
+      <indicador titulo="Vagas abertas" indicador="100"></indicador>
       </div>
       <div class="col-4">
-        <div class="h-100 p-5 rounded-3 border bg-dark text-white">
-          <p>Profissionais cadastrados</p>
-          <h2>125</h2>
-        </div>
+        <indicador titulo="Profissionais cadastrados" indicador="225"></indicador>
       </div>
       <div class="col-4">
-        <div class="h-100 p-5 rounded-3 border bg-light text-dark">
-          <p>Visitantes online</p>
-          <h2>15</h2>
-        </div>
+        <indicador titulo="Visitantes online" indicador="25"></indicador>
       </div>
     </div>
 
@@ -51,8 +23,14 @@
 </template>
 
 <script>
+import PesquisarVaga from '@/components/comuns/PesquisarVaga.vue'
+import Indicador from "@/components/comuns/Indicador";
 export default {
   name: 'Home',
+  components: {
+    PesquisarVaga,
+    Indicador
+  },
   activated() {
     console.log('Componente é ativado')
   },
