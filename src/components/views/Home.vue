@@ -7,10 +7,10 @@
     </div>
     <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
       <div class="col">
-      
+
         <Vaga
-        :titulo="vaga.titulo"
-        :descricao="vaga.descricao"
+        :titulo-vaga="vaga.titulo"
+        :descricao-vaga="vaga.descricao"
         :salario="vaga.salario"
         :modalidade="vaga.modalidade"
         :tipo="vaga.tipo"
@@ -70,7 +70,7 @@ export default {
         tipo: 'PJ',
         publicacao: '2021-10-10'
       },
-      {
+      /*{
         titulo: 'Programador JavaScript Angular',
         descricao: 'Profissional com conhecimentos avançados em JavaScript e Angular.',
         salario: 5000,
@@ -101,7 +101,7 @@ export default {
         modalidade: 'Presencial',
         tipo: 'CLT',
         publicacao: '2021-10-05'
-      }
+      }*/
     ]
   }),
   methods: {
