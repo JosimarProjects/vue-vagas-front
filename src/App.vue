@@ -1,8 +1,8 @@
 <template>
   <div>
-    <topo-padrao></topo-padrao>
-    <!--<button @click="desmontarComponente()">Desmontar o componente conteudo</button>-->
-    <conteudo v-if="visibility"></conteudo>
+    <vagas-favoritas></vagas-favoritas>
+    <topo-padrao @navegar=" componente = $event"></topo-padrao>
+    <conteudo v-if="visibility" :conteudo="componente"></conteudo>
   </div>
 </template>
 
@@ -11,20 +11,20 @@
 
 import Conteudo from '@/components/layouts/Conteudo.vue'
 import TopoPadrao from '@/components/layouts/TopoPadrao.vue'
+import VagasFavoritas from "@/components/comuns/VagasFavoritas";
+
 
 
 export default {
   name: 'App',
   data: () => ({
-    visibility: true
-  }),
-  methods: {
-    desmontarComponente() {
-      this.visibility = false
+    visibility: true,
+    componente: "Home"
 
-    }
-  },
+  }),
+
   components: {
+    VagasFavoritas,
     Conteudo,
     TopoPadrao
   }
