@@ -2,31 +2,50 @@
   <div>
     <vagas-favoritas></vagas-favoritas>
     <topo-padrao @navegar=" componente = $event"></topo-padrao>
+    <alerta v-if="exibirAlerta">
+      <template v-slot:titulo>
+        <h5>{{alerta.titulo}}</h5>
+      </template>
+      <div>
+        <p>{{alerta.descricao}}</p>
+      </div>
+
+    </alerta>
     <conteudo v-if="visibility" :conteudo="componente"></conteudo>
   </div>
 </template>
 
 <script>
 
-
+import Alerta from "@/components/comuns/Alerta";
 import Conteudo from '@/components/layouts/Conteudo.vue'
 import TopoPadrao from '@/components/layouts/TopoPadrao.vue'
 import VagasFavoritas from "@/components/comuns/VagasFavoritas";
-
 
 
 export default {
   name: 'App',
   data: () => ({
     visibility: true,
-    componente: "Home"
+    componente: "Home",
+    exibirAlerta: false,
+    alerta: {titulo: '', descricao: ''}
 
   }),
 
   components: {
     VagasFavoritas,
     Conteudo,
-    TopoPadrao
+    TopoPadrao,
+    Alerta
+  },
+  mounted() {
+    this.emitter.on('alerta', (a) => {
+      this.alerta = a
+      this.exibirAlerta = true
+      setTimeout(() => this.exibirAlerta = false, 4000)
+    })
+
   }
 }
 </script>

@@ -13,7 +13,11 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        ...
+        <ul class="list-group">
+          <li class="list-group-item" v-for="(vaga, index) in vagas" :key="index">{{vaga}}</li>
+
+
+        </ul>
       </div>
     </div>
 
@@ -23,7 +27,24 @@
 
 <script>
 export default {
-  name: "VagasFavoritas"
+  name: "VagasFavoritas",
+  data: () => ({
+    vagas: []
+
+  }),
+  mounted() {
+  this.emitter.on('favoritarVaga', (titulo) => {
+    this.vagas.push(titulo)
+
+  })
+
+  this.emitter.on('desfavoritarVaga', (titulo) => {
+    let indiceArray = this.vagas.indexOf(titulo)
+    if(indiceArray !== -1) this.vagas.splice(indiceArray, 1)
+  })
+
+  }
+
 
 }
 </script>
@@ -33,8 +54,8 @@ export default {
 .divVagasFavoritas {
   position: absolute;
   z-index: 1;
-  top: 10px;
-  right: 5px
+  top: 70px;
+  right: 0px
 }
 
 </style>
