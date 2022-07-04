@@ -5,7 +5,6 @@
               aria-controls="offcanvasRight">
         Vagas Favoritas
       </button>
-
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
@@ -15,22 +14,16 @@
       <div class="offcanvas-body">
         <ul class="list-group">
           <li class="list-group-item" v-for="(vaga, index) in vagas" :key="index">{{vaga}}</li>
-
-
         </ul>
       </div>
     </div>
-
   </div>
-
 </template>
-
 <script>
 export default {
   name: "VagasFavoritas",
   data: () => ({
     vagas: []
-
   }),
   mounted() {
   this.emitter.on('favoritarVaga', (titulo) => {

@@ -2,14 +2,11 @@
   <div>
     <vagas-favoritas></vagas-favoritas>
     <topo-padrao @navegar=" componente = $event"></topo-padrao>
-    <alerta v-if="exibirAlerta">
+    <alerta v-if="exibirAlerta" :tipo="alerta.tipo">
       <template v-slot:titulo>
         <h5>{{alerta.titulo}}</h5>
       </template>
-      <div>
         <p>{{alerta.descricao}}</p>
-      </div>
-
     </alerta>
     <conteudo v-if="visibility" :conteudo="componente"></conteudo>
   </div>
@@ -29,7 +26,7 @@ export default {
     visibility: true,
     componente: "Home",
     exibirAlerta: false,
-    alerta: {titulo: '', descricao: ''}
+    alerta: {titulo: '', descricao: '', tipo: ''}
 
   }),
 
@@ -42,6 +39,7 @@ export default {
   mounted() {
     this.emitter.on('alerta', (a) => {
       this.alerta = a
+      console.log(this.alerta)
       this.exibirAlerta = true
       setTimeout(() => this.exibirAlerta = false, 4000)
     })

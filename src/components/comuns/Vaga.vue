@@ -11,13 +11,9 @@
               <input class="form-check-input" type="checkbox" v-model="favoritada">
               <label class="form-check-label">Favoritar </label>
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </div>
     <div class="card-body">
       <p>{{ descricao }}</p>
@@ -46,7 +42,6 @@ export default {
       }
     }
   },
-
   props: {
     titulo: {
       type: String,
@@ -65,7 +60,6 @@ export default {
     salario: {
       type: [Number, String],
       required: true
-
     },
 
     modalidade: {
@@ -105,9 +99,6 @@ export default {
       return dataPublicacao.toLocaleDateString('pt-BR')
 
     }
-
-
-
   },
   methods: {
 

@@ -25,12 +25,10 @@
 
 <script>
 export default {
-
   name: 'TopoPadrao',
   methods: {
     navegarPara(p) {
       this.$emit('navegar', p)
-
     }
   }
 }

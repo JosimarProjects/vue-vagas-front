@@ -81,18 +81,18 @@ export default {
       if(this.validaFormulario()) {
         localStorage.setItem('vagas', JSON.stringify(vagas))
         this.emitter.emit('alerta', {
+          tipo: 'sucesso',
           titulo: `A vaga  ${this.titulo} foi cadastrada com sucesso!`,
           descricao: 'Parabéns a vaga foi cadastrada e poderá ser vista por milhares de profissionais em nossa plataforma!'
         })
+        this.resetaFormularioCadastroVaga()
       }else {
         this.emitter.emit('alerta', {
+          tipo: 'erro',
           titulo: '-_- ops não foi possivel realizar o cadastro!',
           descricao: 'Parece que você esqueceu de preencher alguma informação. Faça o ajuste e tente novamente. Obrigado!'
         })
       }
-
-
-      this.resetaFormularioCadastroVaga()
     },
 
     resetaFormularioCadastroVaga() {
@@ -111,9 +111,7 @@ export default {
       if (this.salario === '') valido = false
       if (this.modalidade === '') valido = false
       if (this.tipo === '') valido = false
-
-
-       return valido
+      return valido
     }
 
 

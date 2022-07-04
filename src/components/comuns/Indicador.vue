@@ -3,7 +3,6 @@
     <p>{{ titulo }}</p>
     <h2>{{ indicador }}</h2>
   </div>
-
 </template>
 <script>
 export default {
